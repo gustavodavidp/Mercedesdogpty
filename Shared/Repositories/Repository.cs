@@ -59,5 +59,30 @@ namespace LetrasBlog.Client.Repositories
             return ArticlesData;
         }
 
+
+        public async Task<Users.response> GetUsers()
+        {
+            Users.response ArticlesData = new Users.response();
+            Users.Data responseDetail = new Users.Data();
+
+            var db = dbConection();
+            var procedure = "[dbo].[SP_OBTENER_USUARIOS]";
+
+            var Data = await db.QueryAsync<Users.Data>(procedure, commandType: CommandType.StoredProcedure); ;
+
+            ArticlesData = new Users.response
+            {
+                Code = 0,
+                Message = "Success",
+                Detail = Data.Select(c => new Users.Data()
+                {
+                    Id = c.Id,
+                    Username = c.Username
+                    
+                }).ToList()
+            };
+
+            return ArticlesData;
+        }
     }
 }

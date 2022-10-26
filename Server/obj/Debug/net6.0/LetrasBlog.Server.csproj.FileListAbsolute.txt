@@ -89,6 +89,7 @@ D:\source\repos\LetrasBlog\Server\obj\Debug\net6.0\refint\LetrasBlog.Server.dll
 D:\source\repos\LetrasBlog\Server\obj\Debug\net6.0\LetrasBlog.Server.pdb
 D:\source\repos\LetrasBlog\Server\obj\Debug\net6.0\LetrasBlog.Server.genruntimeconfig.cache
 D:\source\repos\LetrasBlog\Server\obj\Debug\net6.0\ref\LetrasBlog.Server.dll
+D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\LetrasBlog.Client.staticwebassets.runtime.json
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\appsettings.Development.json
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\appsettings.json
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\BlazorDebugProxy\BrowserDebugHost.dll
@@ -97,7 +98,6 @@ D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\BlazorDebugProxy\BrowserD
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\BlazorDebugProxy\Microsoft.CodeAnalysis.CSharp.dll
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\BlazorDebugProxy\Microsoft.CodeAnalysis.dll
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\BlazorDebugProxy\Newtonsoft.Json.dll
-D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\LetrasBlog.Client.staticwebassets.runtime.json
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\LetrasBlog.Server.staticwebassets.runtime.json
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\LetrasBlog.Server.exe
 D:\source\repos\Mercedesdogpty\Server\bin\Debug\net6.0\LetrasBlog.Server.deps.json

@@ -44,5 +44,19 @@ namespace LetrasBlog.Infraestructure.Services
 
             return response;
         }
+
+        public Task<Users.response> GetUsers()
+        {
+            _logger.LogInformation("Request to endpoint {endpoint} {verb}", "/api/" + TAG_API + "", TAG_VERB);
+            var response = _repository.GetUsers();
+            if (response.Result == null)
+            {
+                _logger.LogError("Error Request from endpoint {endpoint} {verb}", "/api/" + TAG_API + "", " - " + TAG_VERB +
+                    " - " + "[ No data available ]");
+            }
+            _logger.LogInformation("Response from endpoint {endpoint} {verb}", "/api/" + TAG_API + "", " - " + TAG_VERB  + " - OK");
+
+            return response;
+        }
     }
 }

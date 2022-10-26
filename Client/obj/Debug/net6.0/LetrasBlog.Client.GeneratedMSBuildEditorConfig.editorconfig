@@ -30,16 +30,56 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0aWNsZXNcQXJ0aWNsZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/source/repos/Mercedesdogpty/Client/Pages/Contabilidades/Contabilidad.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFiaWxpZGFkZXNcQ29udGFiaWxpZGFkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/source/repos/Mercedesdogpty/Client/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Duenos/Dueno.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRHVlbm9zXER1ZW5vLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Entrenamientos/Entrenamiento.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50cmVuYW1pZW50b3NcRW50cmVuYW1pZW50by5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/repos/Mercedesdogpty/Client/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/source/repos/Mercedesdogpty/Client/Pages/Guarderias/Guarderia.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3VhcmRlcmlhc1xHdWFyZGVyaWEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Guarderias/GuarderiaPerro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcR3VhcmRlcmlhc1xHdWFyZGVyaWFQZXJyby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Hospedajes/Hospedaje.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9zcGVkYWplc1xIb3NwZWRhamUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/source/repos/Mercedesdogpty/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Pasadias/Pasadia.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFzYWRpYXNcUGFzYWRpYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Perros/Perro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVycm9zXFBlcnJvLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Razas/Raza.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmF6YXNcUmF6YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/source/repos/Mercedesdogpty/Client/Pages/Users/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcVXNlcnMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/source/repos/Mercedesdogpty/Client/Shared/MainLayout.razor]

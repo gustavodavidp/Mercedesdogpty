@@ -10,6 +10,7 @@ namespace LetrasBlog.Client.Repositories
     public interface IRepository
     {
         Task<Articles.response> GetArticles();
+        Task<Users.response> GetUsers();
 
     }
 }

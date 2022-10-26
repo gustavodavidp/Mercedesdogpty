@@ -102,10 +102,40 @@ namespace LetrasBlog.Client.Repositories
                 {
                     Id = c.Id,
                     Tipo = c.Tipo,
+                    Servicio_Id = c.Servicio_Id,
                     Perro_Id = c.Perro_Id,
                     Monto = c.Monto,
                     Metodo = c.Metodo,
                     Fecha = c.Fecha,
+                    Observacion = c.Observacion
+
+                }).ToList()
+            };
+
+            return ArticlesData;
+        }
+        public async Task<Perros.response> GetPerros()
+        {
+            Perros.response ArticlesData = new Perros.response();
+            Perros.Data responseDetail = new Perros.Data();
+
+            var db = dbConection();
+            var procedure = "[dbo].[SP_OBTENER_PERROS]";
+
+            var Data = await db.QueryAsync<Perros.Data>(procedure, commandType: CommandType.StoredProcedure); ;
+
+            ArticlesData = new Perros.response
+            {
+                Code = 0,
+                Message = "Success",
+                Detail = Data.Select(c => new Perros.Data()
+                {
+                    Id = c.Id,
+                    Raza = c.Raza,
+                    Nombre = c.Nombre,
+                    Edad = c.Edad,
+                    Dueno = c.Dueno,
+                    CreadoPor = c.CreadoPor,
                     Observacion = c.Observacion
 
                 }).ToList()

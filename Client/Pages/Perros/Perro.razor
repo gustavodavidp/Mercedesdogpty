@@ -1,5 +1,85 @@
-﻿<h3>Perro</h3>
+﻿@page "/perros"
+@inject IDialogService Dialog
+@using LetrasBlog.Infraestructure.Entities;
+@using System.Net.Http;
+@using Newtonsoft.Json;
+
+
+<PageTitle>Perros</PageTitle>
+
+<MudText Typo="Typo.h4" GutterBottom="true">Perros</MudText>
+@if(response == null)
+{
+    <label>Cargando...</label>
+}
+else
+{
+
+    <div class="col-12">
+        <MudTable Items="@_UsersList" Dense="@dense" >
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Registros</MudText>
+                <MudSpacer />
+                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Small" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Nombre</MudTh>
+                <MudTh>Raza</MudTh>
+                <MudTh>Edad</MudTh>
+                <MudTh>Dueño</MudTh>
+                <MudTh>Observacion</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Nr">@context.Id</MudTd>
+                <MudTd DataLabel="Sign">@context.Nombre</MudTd>
+                <MudTd DataLabel="Name">@context.Raza</MudTd>
+                <MudTd DataLabel="Position">@context.Edad</MudTd>
+                <MudTd DataLabel="Molar mass">@context.Dueno</MudTd>
+                <MudTd DataLabel="Molar mass">@context.Observacion</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager />
+            </PagerContent>
+        </MudTable>
+    </div>
+}
+
 
 @code {
+    DialogOptions maxWidth = new DialogOptions() { MaxWidth = MaxWidth.ExtraExtraLarge, FullWidth = true };
+    private bool dense = false;
+    private bool hover = true;
+    private bool striped = false;
+    private bool bordered = false;
+    private string searchString1 = "";
+
+
+
+    private static readonly HttpClient client = new HttpClient();
+    public List<Perros.Data> _UsersList { get ; set ; } = new List<Perros.Data>() ;
+    public Perros.response UsersResponse { get ; set ; } = new Perros.response() ;
+    public string response;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var content = await client.GetAsync("https://localhost:44342" + "/api/Perros/GetPerros");
+            //Imprimir en consola
+            response = content.Content.ReadAsStringAsync().ToString();
+            Console.WriteLine(await content.Content.ReadAsStringAsync());
+
+            //Procesar respuesta
+            var responseString = await content.Content.ReadAsStringAsync();
+            UsersResponse = JsonConvert.DeserializeObject<Perros.response>(responseString);
+            _UsersList = UsersResponse.Detail;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error: " + ex.ToString());
+        }
+    }
+
 
 }

@@ -17,7 +17,7 @@ namespace LetrasBlog.Infraestructure.Entities
         public class Data
         {
             public int Id { get; set; }
-            public int DuenoId { get; set; }
+            public int Dueno { get; set; }
             public string Nombre { get; set; }
             public string Raza { get; set; }
             public int Edad { get; set; }

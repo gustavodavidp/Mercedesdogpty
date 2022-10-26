@@ -18,7 +18,7 @@ namespace LetrasBlog.Client.Repositories
         //Task<Guarderias.response> GetGuarderias();
         //Task<Hospedajes.response> GetHospedajes();
         //Task<Pasadias.response> GetPasadias();
-        //Task<Perros.response> GetPerros();
+        Task<Perros.response> GetPerros();
 
     }
 }

@@ -17,16 +17,14 @@ namespace LetrasBlog.Infraestructure.Entities
         public class Data
         {
             public int Id { get; set; }
-            public int ServicioId { get; set; }
-            public int PerroId { get; set; }
+            public int Servicio_Id { get; set; }
+            public int Tipo { get; set; }
+            public int Perro_Id { get; set; }
             public float Monto { get; set; }
             public string Metodo { get; set; }
             public string Fecha { get; set; }
             public string Observacion { get; set; }
-            public int CreadoPor { get; set; }
-            public int ModifPor { get; set; }
-            public string FechaCreacion { get; set; }
-            public string FechaModif { get; set; }
+
         }
 
     }

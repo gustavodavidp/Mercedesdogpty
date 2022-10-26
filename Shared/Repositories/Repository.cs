@@ -59,7 +59,7 @@ namespace LetrasBlog.Client.Repositories
             return ArticlesData;
         }
 
-
+        //GET ENTIDADES
         public async Task<Users.response> GetUsers()
         {
             Users.response ArticlesData = new Users.response();
@@ -79,6 +79,35 @@ namespace LetrasBlog.Client.Repositories
                     Id = c.Id,
                     Username = c.Username
                     
+                }).ToList()
+            };
+
+            return ArticlesData;
+        }
+        public async Task<Contabilidades.response> GetContabilidades()
+        {
+            Contabilidades.response ArticlesData = new Contabilidades.response();
+            Contabilidades.Data responseDetail = new Contabilidades.Data();
+
+            var db = dbConection();
+            var procedure = "[dbo].[SP_OBTENER_CONTABILIDADES]";
+
+            var Data = await db.QueryAsync<Contabilidades.Data>(procedure, commandType: CommandType.StoredProcedure); ;
+
+            ArticlesData = new Contabilidades.response
+            {
+                Code = 0,
+                Message = "Success",
+                Detail = Data.Select(c => new Contabilidades.Data()
+                {
+                    Id = c.Id,
+                    Tipo = c.Tipo,
+                    Perro_Id = c.Perro_Id,
+                    Monto = c.Monto,
+                    Metodo = c.Metodo,
+                    Fecha = c.Fecha,
+                    Observacion = c.Observacion
+
                 }).ToList()
             };
 

@@ -18,7 +18,7 @@ namespace LetrasBlog.Infraestructure.Entities
         {
             public int Id { get; set; }
             public int Servicio_Id { get; set; }
-            public int Tipo { get; set; }
+            public string Tipo { get; set; }
             public int Perro_Id { get; set; }
             public float Monto { get; set; }
             public string Metodo { get; set; }

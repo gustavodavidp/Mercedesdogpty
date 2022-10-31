@@ -18,7 +18,9 @@ namespace LetrasBlog.Infraestructure.Entities
         {
             public int Id { get; set; }
             public string Username { get; set; }
-
+            public string Password { get; set; }
+            public bool Enable { get; set; }
+            public bool Admin { get; set; }
         }
 
     }

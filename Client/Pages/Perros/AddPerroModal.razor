@@ -1,0 +1,51 @@
+﻿<MudDialog>
+    <DialogContent>
+                <MudTextField @bind-Value="TextValue" Label="ID" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+
+                <label>Fecha:</label>
+                <MudDatePicker For="@(() => model.Date)" />
+                    <br />
+                
+                <MudSelect Class="mb-2" T="string" Label="Perro" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+                    <MudSelectItem T="string" Value="@("Fridda")"/>
+                    <MudSelectItem T="string" Value="@("Firu")"/>
+                    <MudSelectItem T="string" Value="@("Johnny")"/>
+                </MudSelect>
+
+                <label>Hora Llegada:</label>
+                <MudDatePicker For="@(() => model.Date)" />
+            <br />
+
+                <MudTextField @bind-Value="TextValue" Label="Costo" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+
+                <label>Hora Salida:</label>
+                <MudDatePicker For="@(() => model.Date)" />
+                    <br />
+            
+
+                <MudTextField @bind-Value="TextValue" Label="Recargo" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+
+        <MudTextField Class="mb-2" T="string" Label="Observación" Variant="Variant.Outlined" Text="@sampleText" Lines="4" />
+    </DialogContent>
+    <DialogActions>
+
+        <MudButton OnClick="Cancel">Cancelar</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    DisplayNameLabelClass model = new();
+
+    public class DisplayNameLabelClass
+    {
+
+        public DateTime? Date { get; set; }
+    }
+    public string TextValue { get; set; }
+    public int IntValue { get; set; }
+    string sampleText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}

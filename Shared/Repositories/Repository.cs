@@ -77,7 +77,8 @@ namespace LetrasBlog.Client.Repositories
                 Detail = Data.Select(c => new Users.Data()
                 {
                     Id = c.Id,
-                    Username = c.Username
+                    Username = c.Username,
+
                     
                 }).ToList()
             };

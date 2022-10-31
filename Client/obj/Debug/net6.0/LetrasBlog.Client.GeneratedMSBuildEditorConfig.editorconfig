@@ -70,6 +70,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFzYWRpYXNcUGFzYWRpYS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/source/repos/Mercedesdogpty/Client/Pages/Perros/AddPerroModal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVycm9zXEFkZFBlcnJvTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/source/repos/Mercedesdogpty/Client/Pages/Perros/Perro.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVycm9zXFBlcnJvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

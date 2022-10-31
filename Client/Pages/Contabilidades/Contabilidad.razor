@@ -7,16 +7,20 @@
 
 <PageTitle>Contabilidad</PageTitle>
 
-<MudText Typo="Typo.h4" GutterBottom="true">Usuarios</MudText>
+<MudText Typo="Typo.h4" GutterBottom="true">Contabilidad</MudText>
+<br />
+<MudButton Variant="Variant.Filled" Color="Color.Primary" IconClass="@Icons.Material.Filled.PlusOne">
+    Crear Registro
+</MudButton>
+<br />
 @if(response == null)
 {
     <label>Cargando...</label>
 }
 else
 {
-
     <div class="col-12">
-        <MudTable Items="@_UsersList" Dense="@dense" >
+        <MudTable Items="@Elements" Dense="true" >
             <ToolBarContent>
                 <MudText Typo="Typo.h6">Registros</MudText>
                 <MudSpacer />
@@ -24,21 +28,17 @@ else
             </ToolBarContent>
             <HeaderContent>
                 <MudTh>Id</MudTh>
-                <MudTh>Servicio_Id</MudTh>
-                <MudTh>Tipo</MudTh>
-                <MudTh>Perro_Id</MudTh>
-                <MudTh>Monto</MudTh>
-                <MudTh>Fecha</MudTh>
-                <MudTh>Observacion</MudTh>
+                <MudTh>Servicio</MudTh>
+                <MudTh>Perro</MudTh>
+                <MudTh>Fecha Pago</MudTh>
+                <MudTh>Monto Pago</MudTh>
             </HeaderContent>
             <RowTemplate>
                 <MudTd DataLabel="Nr">@context.Id</MudTd>
-                <MudTd DataLabel="Sign">@context.Servicio_Id</MudTd>
-                <MudTd DataLabel="Name">@context.Tipo</MudTd>
-                <MudTd DataLabel="Position">@context.Perro_Id</MudTd>
-                <MudTd DataLabel="Molar mass">@context.Monto</MudTd>
-                <MudTd DataLabel="Position">@context.Fecha</MudTd>
-                <MudTd DataLabel="Molar mass">@context.Observacion</MudTd>
+                <MudTd DataLabel="Sign">@context.Observacion</MudTd>
+                <MudTd DataLabel="Sign">@context.Metodo</MudTd>
+                <MudTd DataLabel="Name">@context.Fecha</MudTd>
+                <MudTd DataLabel="Nr">@context.Monto</MudTd>
             </RowTemplate>
             <PagerContent>
                 <MudTablePager />
@@ -50,46 +50,36 @@ else
 
 @code {
     DialogOptions maxWidth = new DialogOptions() { MaxWidth = MaxWidth.ExtraExtraLarge, FullWidth = true };
-    private bool dense = false;
-    private bool hover = true;
-    private bool striped = false;
-    private bool bordered = false;
-    private string searchString1 = "";
-
-
 
     private static readonly HttpClient client = new HttpClient();
-    public List<Contabilidades.Data> _UsersList { get ; set ; } = new List<Contabilidades.Data>() ;
-    public Contabilidades.response UsersResponse { get ; set ; } = new Contabilidades.response() ;
+    public List<LetrasBlog.Infraestructure.Entities.Users.Data> _UsersList { get ; set ; } = new List<LetrasBlog.Infraestructure.Entities.Users.Data>() ;
+    public LetrasBlog.Infraestructure.Entities.Users.response UsersResponse { get ; set ; } = new LetrasBlog.Infraestructure.Entities.Users.response() ;
     public string response;
+    private string searchString1 = "";
 
-    private bool FilterFunc1(Contabilidades.Data element) => FilterFunc(element, searchString1);
-
-    private bool FilterFunc(Contabilidades.Data element, string searchString)
+    private IEnumerable<Contabilidades.Data> Elements = new List<Contabilidades.Data>()
     {
-        if (string.IsNullOrWhiteSpace(searchString))
-            return true;
-        if (element.Metodo.Contains(searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
-        if (element.Monto.ToString().Contains(searchString, StringComparison.OrdinalIgnoreCase))
-            return true;
-        if ($"{element.Fecha} {element.Observacion} {element.Tipo}".Contains(searchString))
-            return true;
-        return false;
-    }
+        new Contabilidades.Data()
+        { Id = 1, Observacion = "Entrenamiento 1", Metodo = "Firulais", Fecha = "20/10/2022", Monto =  100},
+        new Contabilidades.Data() 
+        { Id = 1, Observacion = "Guarderia 1", Metodo = "Fridda", Fecha = "20/10/2022", Monto =  100},
+        new Contabilidades.Data() 
+        { Id = 1, Observacion = "Entrenamiento 3", Metodo = "Pablito", Fecha = "20/10/2022", Monto =  100}
+    };
+
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            var content = await client.GetAsync("https://localhost:44342" + "/api/Contabilidades/GetContabilidades");
+            var content = await client.GetAsync("https://localhost:44342" + "/api/Users/GetUsers");
             //Imprimir en consola
             response = content.Content.ReadAsStringAsync().ToString();
             Console.WriteLine(await content.Content.ReadAsStringAsync());
 
             //Procesar respuesta
             var responseString = await content.Content.ReadAsStringAsync();
-            UsersResponse = JsonConvert.DeserializeObject<Contabilidades.response>(responseString);
+            UsersResponse = JsonConvert.DeserializeObject<LetrasBlog.Infraestructure.Entities.Users.response>(responseString);
             _UsersList = UsersResponse.Detail;
         }
         catch (Exception ex)

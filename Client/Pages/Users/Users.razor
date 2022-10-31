@@ -8,38 +8,42 @@
 <PageTitle>Usuarios</PageTitle>
 
 <MudText Typo="Typo.h4" GutterBottom="true">Usuarios</MudText>
+<br />
+<MudButton Variant="Variant.Filled" Color="Color.Primary" IconClass="@Icons.Material.Filled.PlusOne">
+    Crear Registro
+</MudButton>
+<br />
 @if(response == null)
 {
     <label>Cargando...</label>
 }
 else
 {
-
-    <div class="row d-flex">
-        @foreach(var item in _UsersList)
-        {
-            <div class="col-12 ml-2 mr-2">
-                <MudCard>
-                    <MudCardHeader>
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.h6">@item.Id</MudText>
-                        </CardHeaderContent>
-                        <CardHeaderActions>
-                            <MudIconButton Icon="@Icons.Material.Filled.Book" Color="Color.Info" />
-                        </CardHeaderActions>
-                    </MudCardHeader>
-                    <MudCardContent>
-                        <MudText>@item.Username</MudText>
-                    </MudCardContent>
-                    <MudCardActions>
-                        <MudButton Variant="Variant.Text" Color="Color.Primary">Read more</MudButton>
-                        <MudText>Username x2 XD: @item.Username</MudText>
-                    </MudCardActions>
-                    
-                </MudCard>
-            </div>
-        
-        }
+    <div class="col-12">
+        <MudTable Items="@Elements" Dense="true" >
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Registros</MudText>
+                <MudSpacer />
+                <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Small" Class="mt-0"></MudTextField>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Login</MudTh>
+                <MudTh>Password</MudTh>
+                <MudTh>Habilitado</MudTh>
+                <MudTh>Admmin</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Nr">@context.Id</MudTd>
+                <MudTd DataLabel="Sign">@context.Username</MudTd>
+                <MudTd DataLabel="Name">@context.Password</MudTd>
+                <MudTd DataLabel="Position">@context.Enable</MudTd>
+                <MudTd DataLabel="Molar mass">@context.Admin</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <MudTablePager />
+            </PagerContent>
+        </MudTable>
     </div>
 }
 
@@ -51,6 +55,18 @@ else
     public List<LetrasBlog.Infraestructure.Entities.Users.Data> _UsersList { get ; set ; } = new List<LetrasBlog.Infraestructure.Entities.Users.Data>() ;
     public LetrasBlog.Infraestructure.Entities.Users.response UsersResponse { get ; set ; } = new LetrasBlog.Infraestructure.Entities.Users.response() ;
     public string response;
+    private string searchString1 = "";
+
+    private IEnumerable<LetrasBlog.Infraestructure.Entities.Users.Data> Elements = new List<LetrasBlog.Infraestructure.Entities.Users.Data>()
+    {
+        new LetrasBlog.Infraestructure.Entities.Users.Data()
+        { Id = 1, Username = "Usuario1", Password = "123456", Enable = true, Admin = true },
+        new LetrasBlog.Infraestructure.Entities.Users.Data() 
+        { Id = 2, Username = "Usuario2", Password = "126341", Enable = true, Admin = false },
+        new LetrasBlog.Infraestructure.Entities.Users.Data() 
+        { Id = 3, Username = "Usuario3", Password = "123456", Enable = true, Admin = false }
+    };
+
 
     protected override async Task OnInitializedAsync()
     {
